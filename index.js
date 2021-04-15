@@ -50,18 +50,39 @@ const questions = [
         message: 'Choose licenses for this project',
         choices: ['choice1','choice2','choice3'],
         name: 'licenses',
-    }
+    },
+    {
+        type: 'input',
+        message: 'Name your README file',
+        name: 'file_name',
+    },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(`${fileName}.md`,
+
+    `TEST`
+
+    , (err) => {
+        if (err) {
+            console.log("There is an error");
+            throw err;
+        };
+        console.log('README');
+    });
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
     .prompt(questions)
-    .then((data) => {
-        console.log(data);
+    .then((theAnswers) => {
+        
+
+        // Write README file
+        const {file_name} = theAnswers;
+        writeToFile(file_name,'FILLER');
     });
 }
 
