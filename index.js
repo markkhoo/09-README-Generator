@@ -46,9 +46,9 @@ const questions = [
         name: 'email',
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Choose licenses for this project',
-        choices: ['choice1','choice2','choice3'],
+        choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','none'],
         name: 'licenses',
     },
     {
