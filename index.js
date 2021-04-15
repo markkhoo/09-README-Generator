@@ -33,7 +33,7 @@ const questions = [
     {
         type: 'input',
         message: 'Enter Project Test Instructions',
-        name: 'test-instructions',
+        name: 'tests',
     },
     {
         type: 'input',
@@ -60,16 +60,12 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`${fileName}.md`,
-
-    `TEST`
-
-    , (err) => {
+    fs.writeFile(`${fileName}.md`, generateMarkdown(data), (err) => {
         if (err) {
             console.log("There is an error");
             throw err;
         };
-        console.log('README');
+        console.log('README created');
     });
 }
 
@@ -78,11 +74,8 @@ function init() {
     inquirer
     .prompt(questions)
     .then((theAnswers) => {
-        
-
-        // Write README file
         const {file_name} = theAnswers;
-        writeToFile(file_name,'FILLER');
+        writeToFile(file_name,theAnswers);
     });
 }
 
